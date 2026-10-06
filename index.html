@@ -5,10 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alondra Chavez Mendoza | Cybersecurity Portfolio</title>
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Playfair Display (Serif) & Montserrat (Sans-Serif) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
@@ -18,11 +15,11 @@
             theme: {
                 extend: {
                     colors: {
-                        alabaster: '#F5F2EB', /* Fondo Principal */
-                        expreso: '#3A2A20',   /* Texto Principal */
-                        dorado: '#C6A355',    /* Acento Estrella */
-                        taupe: '#8C7361',     /* Color Secundario */
-                        bronce: '#5C4033'     /* Color de Contraste */
+                        alabaster: '#F5F2EB',
+                        expreso: '#3A2A20',
+                        dorado: '#C6A355',
+                        taupe: '#8C7361',
+                        bronce: '#5C4033'
                     },
                     fontFamily: {
                         serif: ['"Playfair Display"', 'serif'],
@@ -34,43 +31,49 @@
     </script>
 
     <style>
-        /* Textura de grano sutil para efecto de papel de alta calidad */
-        .noise-bg {
-            position: relative;
-        }
+        .noise-bg { position: relative; }
         .noise-bg::before {
-            content: "";
-            position: fixed;
-            top: 0; left: 0; width: 100vw; height: 100vh;
+            content: ""; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-            opacity: 0.03;
-            pointer-events: none;
-            z-index: 50;
+            opacity: 0.03; pointer-events: none; z-index: 50;
         }
         
-        /* Líneas divisorias (Hairlines) */
-        .hairline {
-            height: 1px;
-            background-color: #C6A355;
-            opacity: 0.4;
-            width: 100%;
-        }
+        .hairline { height: 1px; background-color: #C6A355; opacity: 0.4; width: 100%; }
 
-        /* Animaciones suaves e interactivas */
-        .interactive-card {
-            transition: all 0.5s ease;
-        }
+        .interactive-card { transition: all 0.5s ease; }
         .interactive-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 15px 35px -10px rgba(92, 64, 51, 0.15);
             border-color: #C6A355;
+        }
+
+        .img-editorial {
+            transition: all 0.8s ease;
+            filter: grayscale(80%) sepia(30%) contrast(110%);
+        }
+        
+        .group:hover .img-editorial,
+        .interactive-card:hover .img-editorial {
+            filter: grayscale(0%) sepia(0%) contrast(100%);
+            transform: scale(1.03);
         }
     </style>
 </head>
 <body class="bg-alabaster text-expreso font-sans antialiased selection:bg-dorado selection:text-white noise-bg min-h-screen flex flex-col">
 
     <!-- Header / Hero Section -->
-    <header class="max-w-4xl mx-auto px-8 pt-24 pb-16 text-center">
+    <header class="max-w-4xl mx-auto px-8 pt-24 pb-16 text-center group">
+        
+        <!-- Foto de Perfil Dinámica -->
+        <div class="relative w-40 h-40 md:w-48 md:h-48 mx-auto mb-8">
+            <!-- Anillo dorado decorativo exterior -->
+            <div class="absolute inset-0 border border-dorado rounded-full scale-110 opacity-50 group-hover:rotate-180 transition-all duration-1000"></div>
+            <!-- Contenedor de la imagen -->
+            <div class="w-full h-full rounded-full overflow-hidden border-4 border-alabaster shadow-lg relative z-10">
+                <img src="assets/perfil.jpg" alt="Alondra Chavez Mendoza" class="w-full h-full object-cover img-editorial">
+            </div>
+        </div>
+
         <p class="text-taupe uppercase tracking-[0.3em] text-xs font-medium mb-4">Portfolio & Curriculum Vitae</p>
         <h1 class="text-5xl md:text-6xl font-serif text-expreso mb-6 leading-tight">
             Alondra <span class="italic text-bronce">Chavez Mendoza</span>
@@ -88,88 +91,76 @@
 
         <!-- Elegant Interactive Links -->
         <div class="flex justify-center gap-6">
-            <a href="https://github.com/AlondraChz" target="_blank" class="group flex items-center gap-2 pb-1 border-b border-taupe/30 hover:border-dorado transition-colors duration-300">
-                <span class="text-sm font-medium tracking-wide text-taupe group-hover:text-bronce transition-colors">GitHub</span>
-                <span class="text-dorado group-hover:translate-x-1 transition-transform">→</span>
+            <a href="https://github.com/ChzAlondra" target="_blank" class="flex items-center gap-2 pb-1 border-b border-taupe/30 hover:border-dorado transition-colors duration-300">
+                <span class="text-sm font-medium tracking-wide text-taupe hover:text-bronce transition-colors">GitHub</span>
             </a>
-            <a href="https://www.linkedin.com/in/chzalondra/" target="_blank" class="group flex items-center gap-2 pb-1 border-b border-taupe/30 hover:border-dorado transition-colors duration-300">
-                <span class="text-sm font-medium tracking-wide text-taupe group-hover:text-bronce transition-colors">LinkedIn</span>
-                <span class="text-dorado group-hover:translate-x-1 transition-transform">→</span>
-            </a>
-            <a href="mailto:alochzmdz@gmail.com" class="group flex items-center gap-2 pb-1 border-b border-taupe/30 hover:border-dorado transition-colors duration-300">
-                <span class="text-sm font-medium tracking-wide text-taupe group-hover:text-bronce transition-colors">Contact</span>
-                <span class="text-dorado group-hover:translate-x-1 transition-transform">→</span>
+            <a href="https://www.linkedin.com/in/chzalondra/" target="_blank" class="flex items-center gap-2 pb-1 border-b border-taupe/30 hover:border-dorado transition-colors duration-300">
+                <span class="text-sm font-medium tracking-wide text-taupe hover:text-bronce transition-colors">LinkedIn</span>
             </a>
         </div>
     </header>
 
     <div class="max-w-4xl mx-auto w-full px-8"><div class="hairline"></div></div>
 
-    <!-- Technical Competencies Section -->
-    <section class="max-w-4xl mx-auto px-8 py-20 w-full">
-        <h2 class="text-3xl font-serif text-center text-expreso mb-12">Technical <i class="text-taupe">Competencies</i></h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <!-- Skill Block -->
-            <div class="text-center group">
-                <div class="w-8 h-8 mx-auto mb-4 border border-dorado rounded-full flex items-center justify-center group-hover:bg-dorado/10 transition-colors">
-                    <span class="text-dorado text-xs">01</span>
-                </div>
-                <h3 class="text-lg font-serif text-bronce mb-2">Systems & Logic</h3>
-                <p class="text-sm text-expreso/70 font-light leading-relaxed">Proficient in Python, SQL, Dart, and Kotlin. Focused on process automation and algorithmic efficiency.</p>
-            </div>
-            <!-- Skill Block -->
-            <div class="text-center group">
-                <div class="w-8 h-8 mx-auto mb-4 border border-dorado rounded-full flex items-center justify-center group-hover:bg-dorado/10 transition-colors">
-                    <span class="text-dorado text-xs">02</span>
-                </div>
-                <h3 class="text-lg font-serif text-bronce mb-2">Security Tooling</h3>
-                <p class="text-sm text-expreso/70 font-light leading-relaxed">Experience with SIEM platforms (Splunk, Chronicle), network analysis (Wireshark), and Linux CLI.</p>
-            </div>
-            <!-- Skill Block -->
-            <div class="text-center group">
-                <div class="w-8 h-8 mx-auto mb-4 border border-dorado rounded-full flex items-center justify-center group-hover:bg-dorado/10 transition-colors">
-                    <span class="text-dorado text-xs">03</span>
-                </div>
-                <h3 class="text-lg font-serif text-bronce mb-2">AI & Architecture</h3>
-                <p class="text-sm text-expreso/70 font-light leading-relaxed">Integration of Edge AI (ONNX, TFLite), local LLMs, and ERP architectures for enterprise environments.</p>
-            </div>
-        </div>
-    </section>
-
     <!-- Featured Projects Section -->
-    <section class="bg-white/40 py-20 border-y border-dorado/20">
-        <div class="max-w-4xl mx-auto px-8">
+    <section class="bg-white/40 py-20 border-y border-dorado/20 mt-12">
+        <div class="max-w-5xl mx-auto px-8">
             <h2 class="text-3xl font-serif text-center text-expreso mb-16">Selected <i class="text-taupe">Works</i></h2>
             
-            <div class="space-y-12">
+            <div class="space-y-16">
                 <!-- Project 1 -->
-                <article class="interactive-card bg-alabaster border border-taupe/20 p-10 relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-1 h-full bg-dorado"></div>
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-4">
-                        <h3 class="text-2xl font-serif text-bronce">AURORA</h3>
-                        <span class="text-xs uppercase tracking-widest text-taupe border border-taupe/30 px-3 py-1 rounded-full">Smart Medical IoT</span>
-                    </div>
-                    <p class="text-sm text-expreso/80 font-light leading-relaxed mb-6 max-w-2xl">
-                        Software & AI architecture for preventive health. Integrated local Deep Learning models, offline voice control on Raspberry Pi OS, and built the companion Flutter application. Awarded 1st place in National Young Talents.
-                    </p>
-                    <div class="flex gap-4 text-xs font-medium text-dorado uppercase tracking-wide">
-                        <span>Python</span> <span>•</span> <span>Edge AI</span> <span>•</span> <span>Linux</span>
+                <article class="interactive-card bg-alabaster border border-taupe/20 p-8 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-dorado z-10"></div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-0">
+                        <!-- Columna de Texto -->
+                        <div class="md:col-span-7">
+                            <div class="flex flex-col items-start mb-4 gap-3">
+                                <span class="text-xs uppercase tracking-widest text-taupe border border-taupe/30 px-3 py-1 rounded-full">Smart Medical IoT</span>
+                                <h3 class="text-3xl font-serif text-bronce">AURORA</h3>
+                            </div>
+                            <p class="text-sm text-expreso/80 font-light leading-relaxed mb-6">
+                                Software & AI architecture for preventive health. Integrated local Deep Learning models, offline voice control on Raspberry Pi OS, and built the companion Flutter application. Awarded 1st place in National Young Talents.
+                            </p>
+                            <div class="flex gap-4 text-xs font-medium text-dorado uppercase tracking-wide">
+                                <span>Python</span> <span>•</span> <span>Edge AI</span> <span>•</span> <span>Linux</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Columna de Imagen -->
+                        <div class="md:col-span-5 overflow-hidden border border-taupe/20 bg-white/50 p-2 shadow-sm">
+                            <div class="overflow-hidden bg-expreso/5">
+                                <img src="assets/aurora.jpg" alt="Proyecto AURORA" class="w-full h-48 object-cover img-editorial">
+                            </div>
+                        </div>
                     </div>
                 </article>
 
                 <!-- Project 2 -->
-                <article class="interactive-card bg-alabaster border border-taupe/20 p-10 relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-1 h-full bg-taupe/50"></div>
-                    <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-4 gap-4">
-                        <h3 class="text-2xl font-serif text-bronce">ERP Digitization</h3>
-                        <span class="text-xs uppercase tracking-widest text-taupe border border-taupe/30 px-3 py-1 rounded-full">Process Automation</span>
-                    </div>
-                    <p class="text-sm text-expreso/80 font-light leading-relaxed mb-6 max-w-2xl">
-                        Consulting and deployment of Odoo ERP for Grupo Llantero Chavez to manage multi-warehouse inventory, centralize point-of-sale operations, and secure business workflows.
-                    </p>
-                    <div class="flex gap-4 text-xs font-medium text-dorado uppercase tracking-wide">
-                        <span>Odoo</span> <span>•</span> <span>SQL</span> <span>•</span> <span>Security Automation</span>
+                <article class="interactive-card bg-alabaster border border-taupe/20 p-8 relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-taupe/50 z-10"></div>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-center relative z-0">
+                        <!-- Columna de Imagen -->
+                        <div class="md:col-span-5 order-last md:order-first overflow-hidden border border-taupe/20 bg-white/50 p-2 shadow-sm">
+                            <div class="overflow-hidden bg-expreso/5">
+                                <img src="assets/odoo.jpg" alt="ERP Odoo Dashboard" class="w-full h-48 object-cover img-editorial">
+                            </div>
+                        </div>
+
+                        <!-- Columna de Texto -->
+                        <div class="md:col-span-7 order-first md:order-last">
+                            <div class="flex flex-col items-start mb-4 gap-3">
+                                <span class="text-xs uppercase tracking-widest text-taupe border border-taupe/30 px-3 py-1 rounded-full">Process Automation</span>
+                                <h3 class="text-3xl font-serif text-bronce">ERP Digitization</h3>
+                            </div>
+                            <p class="text-sm text-expreso/80 font-light leading-relaxed mb-6">
+                                Consulting and deployment of Odoo ERP for Grupo Llantero Chavez to manage multi-warehouse inventory, centralize point-of-sale operations, and secure business workflows.
+                            </p>
+                            <div class="flex gap-4 text-xs font-medium text-dorado uppercase tracking-wide">
+                                <span>Odoo</span> <span>•</span> <span>SQL</span> <span>•</span> <span>Automation</span>
+                            </div>
+                        </div>
                     </div>
                 </article>
             </div>
@@ -179,8 +170,7 @@
     <!-- Footer -->
     <footer class="max-w-4xl mx-auto px-8 py-12 text-center mt-auto">
         <div class="w-12 hairline mx-auto mb-6"></div>
-        <p class="text-xs text-taupe tracking-widest uppercase mb-2">Designed with logic and elegance.</p>
-        <p class="text-xs text-expreso/40 font-light">&copy; 2026 Alondra Chavez Mendoza.</p>
+        <p class="text-xs text-expreso/40 font-light">&copy; 2026 Alondra Chavez Mendoza[cite: 12].</p>
     </footer>
 
 </body>
